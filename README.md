@@ -62,3 +62,8 @@ Python's standard library runs the app; npm is only needed for browser tests or 
 To uninstall the launcher, remove `~/.local/bin/folio`, `~/.local/share/applications/folio.desktop`, and `~/.local/share/icons/hicolor/scalable/apps/folio.svg` (or the corresponding `$XDG_DATA_HOME` paths). Clear the site data for `http://127.0.0.1:4179` in your browser to remove reading history.
 
 Bundled third-party licenses are in `static/vendor`.
+
+## Contributors
+
+- [Mihailo (MixGaming25)](https://github.com/MixGaming25) — project creator and maintainer.
+- **OpenAI Codex / ChatGPT** — AI assistance with design, implementation, testing, documentation, and repository setup.
