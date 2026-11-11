@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark"><meta name="description" content="A quiet home for your Markdown. An offline, local reader for Linux.">
+  <title>Folio — Markdown, beautifully.</title>
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/vendor/highlight-light.css" id="highlight-theme">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/config.js" defer></script><script src="/vendor/marked.js" defer></script>
+  <script src="/vendor/purify.js" defer></script><script src="/vendor/highlight.js" defer></script><script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="sidebar" id="sidebar" aria-label="Document library">
+      <a class="brand" href="#" id="home"><img src="/icon.svg" alt="" width="33" height="33"><span>folio<span class="brand-dot">.</span></span><span class="local-badge">LOCAL</span></a>
+      <div class="sidebar-intro">A quiet home for your Markdown.</div>
+      <button class="open-button" id="open-file"><span data-icon="plus"></span>Open a file<kbd>Ctrl O</kbd></button>
+      <div class="library-label"><span>YOUR LIBRARY</span><span id="file-count">1</span></div>
+      <div class="library-search"><span data-icon="search"></span><input id="library-filter" aria-label="Filter documents" placeholder="Find a document…"><span class="search-shortcut">/</span></div>
+      <nav id="documents" aria-label="Opened documents"></nav>
+      <div class="sidebar-bottom">
+        <div class="drop-hint"><div class="drop-icon" data-icon="upload"></div><strong>Drop something worth reading</strong><span>.md, .markdown, or .txt files</span></div>
+        <div class="sidebar-footer"><span><i class="status-dot"></i>All yours. All local.</span><button class="icon-button" id="help" title="Keyboard shortcuts" aria-label="Keyboard shortcuts"><span data-icon="help"></span></button></div>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="toolbar">
+        <div class="breadcrumbs"><button class="icon-button" id="toggle-sidebar" title="Toggle sidebar (Ctrl+B)" aria-label="Toggle sidebar" aria-expanded="true"><span data-icon="panel"></span></button><span class="breadcrumb-library">Library</span><span class="crumb-slash">/</span><span class="breadcrumb-file" id="current-filename">Welcome to Folio.md</span></div>
+        <div class="toolbar-actions"><button class="icon-button" id="search-toggle" title="Find in document (Ctrl+F)" aria-label="Find in document"><span data-icon="search"></span></button><div class="toolbar-divider"></div><button class="icon-button" id="appearance-toggle" title="Reading appearance" aria-label="Reading appearance" aria-expanded="false"><span class="type-icon">Aa</span></button><button class="icon-button" id="theme-toggle" title="Switch color theme" aria-label="Switch color theme"><span data-icon="moon"></span></button><button class="icon-button" id="more-toggle" title="Document actions" aria-label="Document actions" aria-expanded="false"><span data-icon="more"></span></button></div>
+      </header>
+      <div class="find-bar" id="find-bar" hidden><span data-icon="search"></span><input id="find-input" placeholder="Find in this document…" aria-label="Search text"><span id="find-count" aria-live="polite"></span><button class="icon-button" id="find-prev" aria-label="Previous match"><span data-icon="up"></span></button><button class="icon-button" id="find-next" aria-label="Next match"><span data-icon="down"></span></button><button class="icon-button" id="find-close" aria-label="Close search"><span data-icon="close"></span></button></div>
+      <section class="popover appearance" id="appearance" aria-label="Reading appearance" hidden><div class="popover-label">MAKE YOURSELF COMFORTABLE</div><div class="setting-row"><span>Text size</span><div class="stepper"><button id="size-minus" aria-label="Smaller text">−</button><span id="size-value">17</span><button id="size-plus" aria-label="Larger text">+</button></div></div><div class="setting-row"><span>Reading font</span><select id="font-select" aria-label="Reading font"><option value="sans">Sans serif</option><option value="serif">Serif</option><option value="mono">Monospace</option></select></div><div class="setting-row"><span>Page width</span><select id="width-select" aria-label="Page width"><option value="comfortable">Comfortable</option><option value="wide">Wide</option></select></div><button id="focus-toggle" class="menu-action"><span data-icon="focus"></span>Enter focus mode<kbd>F</kbd></button></section>
+      <div class="popover action-menu" id="action-menu" hidden><button id="source-toggle" class="menu-action"><span data-icon="code"></span><span id="source-label">View Markdown source</span></button><button id="download-md" class="menu-action"><span data-icon="download"></span>Save Markdown</button><button id="print-document" class="menu-action"><span data-icon="print"></span>Print / Save as PDF</button><button id="clear-library" class="menu-action danger"><span data-icon="trash"></span>Clear library</button></div>
+      <div class="reading-scroll" id="reading-scroll">
+        <div class="reading-layout">
+          <div class="document-wrap"><div class="document-eyebrow"><span class="eyebrow-line"></span><span id="document-category">A GOOD PLACE TO BEGIN</span></div><article class="prose" id="content" aria-label="Markdown document"></article><pre class="source-view" id="source-view" hidden></pre><div class="document-end"><span></span><span data-icon="leaf"></span><span></span></div></div>
+          <aside class="outline" aria-label="On this page"><div class="outline-label">ON THIS PAGE</div><nav id="toc"></nav><div class="outline-note"><span data-icon="coffee"></span><p>Good words deserve<br>a little breathing room.</p></div></aside>
+        </div>
+      </div>
+      <footer class="statusbar"><div><span data-icon="file"></span><span id="document-status">Markdown</span><span class="status-separator">·</span><span id="word-count"></span><span class="status-separator">·</span><span id="read-time"></span></div><div><span id="scroll-progress">0%</span><span class="status-separator">·</span><span>Made for reading</span><span data-icon="leaf"></span></div></footer>
+    </main>
+  </div>
+  <div class="drop-overlay" id="drop-overlay" hidden><div><span data-icon="upload"></span><h2>Make yourself at home.</h2><p>Drop your Markdown files to start reading.</p></div></div>
+  <dialog id="shortcuts"><button class="icon-button dialog-close" id="help-close" aria-label="Close shortcuts"><span data-icon="close"></span></button><img src="/icon.svg" width="44" height="44" alt=""><h2>A few handy shortcuts.</h2><p>Less clicking. More reading.</p><dl><div><dt>Open a file</dt><dd><kbd>Ctrl</kbd> <kbd>O</kbd></dd></div><div><dt>Find in document</dt><dd><kbd>Ctrl</kbd> <kbd>F</kbd></dd></div><div><dt>Toggle library</dt><dd><kbd>Ctrl</kbd> <kbd>B</kbd></dd></div><div><dt>Focus mode</dt><dd><kbd>F</kbd></dd></div><div><dt>Filter library</dt><dd><kbd>/</kbd></dd></div><div><dt>Leave focus / close search</dt><dd><kbd>Esc</kbd></dd></div></dl><div class="dialog-note">Your documents stay on this computer.<br>Folio never uploads them to a server.</div></dialog>
+  <div id="toast" role="status" hidden></div><input type="file" id="file-input" accept=".md,.markdown,.mdown,.mkd,.txt" multiple hidden>
+</body>
+</html>
