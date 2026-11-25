@@ -1,5 +1,11 @@
 # Folio
 
+![Platform](https://img.shields.io/badge/Platform-Linux-E95420?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square)
+![Dependencies](https://img.shields.io/badge/Dependencies-Zero%20(Stdlib%20%2B%20Bundled%20JS)-2EA44F?style=flat-square)
+![Markdown](https://img.shields.io/badge/Markdown-GFM%20%2B%20DOMPurify-1E607A?style=flat-square)
+![Tests](https://img.shields.io/badge/Tests-Playwright%20%2B%20Unittest-555555?style=flat-square)
+
 A polished, offline Markdown reader for Linux. Warm paper, quiet typography, and your documents front and center.
 
 ## Run
